@@ -69,7 +69,7 @@ python src/inference.py \
 
 ### Training output — 20 epochs, 3D U-Net on Apple M2 (MPS)
 
-![Training output](assets/screenshots/training_output.png)
+![Training output](screenshots/training_output.png)
 
 | Metric | Value |
 |--------|-------|
