@@ -75,12 +75,16 @@ python src/inference.py \
 
 ![Training output](screenshots/training_output.png)
 
+> **Synthetic data corrected (Oct 2026).** The first synthetic generator produced pure-noise
+> volumes with the *same* centred sphere as the mask every time, so the network could score high
+> Dice without looking at the input. Each sample now has a visible ellipsoid (brighter than the
+> background, with noise) at a random position and size. The numbers below are from the earlier
+> generator and must be re-generated with `python src/train.py --synthetic --epochs 20`.
+
 | Metric | Value |
 |--------|-------|
-| Best Val Dice | **0.9826** (Epoch 16) |
-| Final Val Dice | 0.9807 |
-| Final Val IoU | 0.9621 |
-| Final Train Dice | 0.9787 |
+| Best Val Dice | re-run pending (earlier generator: 0.9826) |
+| Final Val IoU | re-run pending (earlier generator: 0.9621) |
 | Device | Apple M2 (MPS) |
 | Epochs | 20 |
 | Batch size | 2 |
