@@ -4,6 +4,10 @@
 
 ---
 
+> **📌 About this repo:** This is a showcase repo — write-up, architecture, and results only. The full implementation lives in a private core repo (kept private to protect the code and as a backup) and is available for a live walkthrough on request, e.g. in an interview.
+
+---
+
 ## Project overview
 
 This project implements an end-to-end 3D segmentation system that:
@@ -84,10 +88,10 @@ python src/inference.py \
 
 ### Key observations
 
-- **3D U-Net outperforms 2D slice-by-slice approach** for volumetric geometry — captures spatial continuity across Z-axis that 2D CNNs miss
+- **3D U-Net vs 2D slice-by-slice**: 3D convolutions use spatial continuity along the Z-axis that 2D slice models lose (a 2D baseline comparison is a planned next step)
 - **Sliding window inference** handles arbitrarily large volumes without memory overflow — tested up to 256³ on 16GB RAM
 - **Combined Dice + Cross-Entropy loss** converges faster and more stably than Dice loss alone, especially for class-imbalanced geometry data
-- **Engineering geometry application**: dimensional measurements extracted from segmented regions (bounding box, volume, centroid) match manual reference values within ±0.3mm on test geometries
+- **Engineering geometry application**: dimensional measurements (bounding box, volume, centroid) are extracted from the segmented regions
 - **ntfy integration** reduces monitoring overhead — inference jobs run unattended with push notification on completion
 
 ---
